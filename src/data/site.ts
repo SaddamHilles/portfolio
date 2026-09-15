@@ -13,7 +13,7 @@ export const site = {
     twitter: "https://twitter.com/SaddamHelles",
     email: "mailto:sdm.hilles@gmail.com",
   },
-  url: "https://saddamhilles.com",
+  url: "https://portfolio-mocha-delta-tfmii5qerw.vercel.app",
 } as const;
 
 export const nav = [

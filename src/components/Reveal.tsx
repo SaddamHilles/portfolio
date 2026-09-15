@@ -16,6 +16,18 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
     const node = ref.current;
     if (!node) return;
 
+    const revealIfVisible = () => {
+      const rect = node.getBoundingClientRect();
+      return rect.top < window.innerHeight * 0.92;
+    };
+
+    if (revealIfVisible()) {
+      node.classList.add("is-visible");
+      return;
+    }
+
+    node.setAttribute("data-animate", "true");
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

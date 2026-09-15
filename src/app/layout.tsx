@@ -65,11 +65,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${instrument.variable} h-full antialiased`}
     >
       <body className="relative flex min-h-full flex-col bg-bg font-sans text-ink">
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `document.documentElement.classList.add('js')`,
-          }}
-        />
         <div className="grain" aria-hidden />
         <Header />
         <main className="flex-1">{children}</main>

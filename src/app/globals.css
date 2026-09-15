@@ -155,7 +155,7 @@ img {
   animation: fade 1.1s ease both;
 }
 
-.js .reveal {
+.reveal[data-animate="true"]:not(.is-visible) {
   opacity: 0;
   transform: translateY(22px);
   transition:
@@ -206,7 +206,7 @@ img {
   .animate-rise,
   .animate-fade,
   .reveal,
-  .js .reveal,
+  .reveal[data-animate="true"],
   .project-card img {
     animation: none;
     transition: none;
