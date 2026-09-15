@@ -1,21 +1,21 @@
-import { skills } from "@/data/skills";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
+import type { Dictionary } from "@/i18n/types";
 
-export function Skills() {
+export function Skills({ t }: { t: Dictionary }) {
   return (
     <section className="px-5 py-24 sm:px-8 sm:py-32">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <SectionHeading
-            eyebrow="Capabilities"
-            title="A senior frontend toolkit"
-            description="Not a logo wall. The systems I actually ship with — interfaces, data, tenancy, and craft."
+            eyebrow={t.skills.eyebrow}
+            title={t.skills.title}
+            description={t.skills.description}
           />
         </Reveal>
 
         <div className="mt-14 grid gap-px overflow-hidden rounded-[1.4rem] border border-line bg-line sm:grid-cols-2">
-          {skills.map((group, index) => (
+          {t.skills.groups.map((group, index) => (
             <Reveal
               key={group.group}
               delay={index * 80}

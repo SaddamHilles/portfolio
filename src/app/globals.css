@@ -45,6 +45,28 @@ html {
   background: var(--bg);
 }
 
+html[lang="ar"] {
+  font-family: var(--font-arabic), var(--font-sans), sans-serif;
+}
+
+html[lang="ar"] body {
+  font-family: var(--font-arabic), sans-serif;
+}
+
+html[lang="ar"] .font-serif,
+html[lang="ar"] .font-serif * {
+  font-family: var(--font-naskh), serif;
+}
+
+html[lang="ar"] .uppercase {
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+
+html[lang="ar"] .italic {
+  font-style: normal;
+}
+
 body {
   background: var(--bg);
   color: var(--ink);
@@ -86,9 +108,9 @@ body {
     color 0.2s ease;
 }
 
-.btn-solid:hover {
-  background: var(--accent);
-  color: #0b0a09;
+html[lang="ar"] .btn-solid {
+  letter-spacing: 0.04em;
+  text-transform: none;
 }
 
 img {

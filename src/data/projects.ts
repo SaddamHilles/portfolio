@@ -263,3 +263,22 @@ export function getProject(slug: string) {
 export function getFeatured() {
   return projects.filter((project) => project.featured);
 }
+
+export function localizeProject(
+  project: Project,
+  copy?: import("@/i18n/types").ProjectCopy,
+): Project {
+  if (!copy) return project;
+  return {
+    ...project,
+    title: copy.title,
+    subtitle: copy.subtitle,
+    role: copy.role,
+    year: copy.year,
+    summary: copy.summary,
+    problem: copy.problem,
+    approach: copy.approach,
+    outcome: copy.outcome,
+    sections: copy.sections,
+  };
+}

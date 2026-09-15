@@ -2,34 +2,50 @@ import type { Metadata } from "next";
 import { CopyEmail } from "@/components/CopyEmail";
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/data/site";
+import { resolveLocale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/get-dictionary";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: `Write to ${site.name} at ${site.email}.`,
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = getDictionary(locale);
+  return {
+    title: t.contact.eyebrow,
+    description: `${t.contact.title} ${site.email}`,
+  };
+}
 
-export default function ContactPage() {
+export default async function ContactPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale: raw } = await params;
+  const locale = resolveLocale(raw);
+  const t = getDictionary(locale);
+
   return (
     <div className="px-5 pt-28 pb-28 sm:px-8 sm:pt-36 sm:pb-36">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <p className="text-[11px] tracking-[0.22em] text-accent uppercase">
-            Contact
+            {t.contact.eyebrow}
           </p>
           <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-[1.05] tracking-tight sm:text-7xl">
-            Tell me what you are building.
+            {t.contact.title}
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-ink-muted">
-            Best fit: senior frontend roles on product platforms — marketplaces,
-            fintech-adjacent consumer apps, partner portals, and design systems
-            that have to last.
+            {t.contact.body}
           </p>
         </Reveal>
 
         <Reveal className="mt-16 grid gap-px overflow-hidden rounded-[1.6rem] border border-line bg-line lg:grid-cols-2">
           <div className="bg-bg-elevated p-8 sm:p-12">
             <p className="text-[11px] tracking-[0.2em] text-ink-faint uppercase">
-              Direct
+              {t.contact.direct}
             </p>
             <a
               href={site.social.email}
@@ -39,15 +55,18 @@ export default function ContactPage() {
             </a>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={site.social.email} className="btn-solid">
-                Write an email
+                {t.contact.writeEmail}
               </a>
-              <CopyEmail />
+              <CopyEmail
+                copyLabel={t.contact.copyEmail}
+                copiedLabel={t.contact.copied}
+              />
             </div>
           </div>
 
           <div className="bg-bg-elevated p-8 sm:p-12">
             <p className="text-[11px] tracking-[0.2em] text-ink-faint uppercase">
-              Elsewhere
+              {t.contact.elsewhere}
             </p>
             <ul className="mt-6 space-y-4">
               <li>
@@ -83,8 +102,7 @@ export default function ContactPage() {
                 </a>
               </li>
               <li className="pt-2 text-sm leading-6 text-ink-muted">
-                Based in {site.location}. I work remotely with product and
-                platform teams.
+                {t.contact.based}
               </li>
             </ul>
           </div>

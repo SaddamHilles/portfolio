@@ -6,42 +6,64 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Skills } from "@/components/Skills";
-import { getFeatured } from "@/data/projects";
+import { getFeatured, localizeProject } from "@/data/projects";
+import { localizedPath, resolveLocale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/get-dictionary";
 
-export default function Home() {
-  const featured = getFeatured();
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale: raw } = await params;
+  const locale = resolveLocale(raw);
+  const t = getDictionary(locale);
+  const featured = getFeatured().map((project) =>
+    localizeProject(project, t.projects[project.slug]),
+  );
   const [lead, ...rest] = featured;
 
   return (
     <>
-      <Hero />
+      <Hero locale={locale} t={t} />
 
       <section className="px-5 pb-24 sm:px-8 sm:pb-32">
         <div className="mx-auto max-w-7xl">
           <Reveal className="mb-14 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeading
-              eyebrow="Selected work"
-              title="Products that have to work in production"
-              description="Card-linked offers, white-label cashback, partner SaaS, a job marketplace, and a defense tabletop — shipped as real interfaces, not demos."
+              eyebrow={t.work.eyebrow}
+              title={t.work.title}
+              description={t.work.description}
             />
             <Link
-              href="/work"
+              href={localizedPath(locale, "/work")}
               className="shrink-0 text-[12px] tracking-[0.18em] text-accent uppercase"
             >
-              All case studies →
+              {t.work.allCaseStudies}
             </Link>
           </Reveal>
 
           {lead ? (
             <Reveal>
-              <ProjectCard project={lead} index={0} featured />
+              <ProjectCard
+                project={lead}
+                index={0}
+                featured
+                locale={locale}
+                viewLabel={t.work.viewCaseStudy}
+              />
             </Reveal>
           ) : null}
 
           <div className="mt-16 grid gap-14 md:grid-cols-2">
             {rest.slice(0, 4).map((project, index) => (
               <Reveal key={project.slug} delay={index * 80}>
-                <ProjectCard project={project} index={index + 1} />
+                <ProjectCard
+                  project={project}
+                  index={index + 1}
+                  locale={locale}
+                  viewLabel={t.work.viewCaseStudy}
+                />
               </Reveal>
             ))}
           </div>
@@ -49,10 +71,10 @@ export default function Home() {
       </section>
 
       <div className="hairline h-px" />
-      <Experience />
+      <Experience t={t} />
       <div className="hairline h-px" />
-      <Skills />
-      <ContactCTA />
+      <Skills t={t} />
+      <ContactCTA locale={locale} t={t} />
     </>
   );
 }

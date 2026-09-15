@@ -2,15 +2,24 @@ import Image from "next/image";
 import Link from "next/link";
 import { PhoneStrip } from "@/components/PhoneStrip";
 import type { Project } from "@/data/projects";
+import { localizedPath, type Locale } from "@/i18n/config";
 import { cn } from "@/lib/utils";
 
 type ProjectCardProps = {
   project: Project;
   index: number;
   featured?: boolean;
+  locale: Locale;
+  viewLabel: string;
 };
 
-export function ProjectCard({ project, index, featured = false }: ProjectCardProps) {
+export function ProjectCard({
+  project,
+  index,
+  featured = false,
+  locale,
+  viewLabel,
+}: ProjectCardProps) {
   const screens =
     project.layout === "mobile"
       ? [project.cover, ...(project.gallery ?? [])]
@@ -18,7 +27,7 @@ export function ProjectCard({ project, index, featured = false }: ProjectCardPro
 
   return (
     <Link
-      href={`/work/${project.slug}`}
+      href={localizedPath(locale, `/work/${project.slug}`)}
       className={cn(
         "project-card group block",
         featured ? "lg:grid lg:grid-cols-12 lg:gap-10 lg:items-end" : "",
@@ -50,7 +59,7 @@ export function ProjectCard({ project, index, featured = false }: ProjectCardPro
           <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-80" />
         ) : null}
         <span
-          className="absolute top-4 left-4 z-10 rounded-full border border-white/15 bg-black/30 px-3 py-1 text-[11px] tracking-[0.16em] text-white/80 uppercase backdrop-blur-md"
+          className="absolute top-4 start-4 z-10 rounded-full border border-white/15 bg-black/30 px-3 py-1 text-[11px] tracking-[0.16em] text-white/80 uppercase backdrop-blur-md"
           style={{ color: project.accent }}
         >
           {String(index + 1).padStart(2, "0")}
@@ -68,7 +77,7 @@ export function ProjectCard({ project, index, featured = false }: ProjectCardPro
           {project.subtitle}
         </p>
         <p className="mt-4 text-[12px] tracking-[0.16em] text-accent uppercase">
-          View case study →
+          {viewLabel}
         </p>
       </div>
     </Link>

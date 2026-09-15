@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { site } from "@/data/site";
+import { localizedPath, type Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/types";
 
-export function Footer() {
+export function Footer({ locale, t }: { locale: Locale; t: Dictionary }) {
   return (
     <footer className="mt-auto border-t border-line">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-8">
@@ -26,10 +28,13 @@ export function Footer() {
             Twitter
           </a>
           <a href={site.social.email} className="transition-colors hover:text-ink">
-            Email
+            {t.footer.email}
           </a>
-          <Link href="/work" className="transition-colors hover:text-ink">
-            Selected work
+          <Link
+            href={localizedPath(locale, "/work")}
+            className="transition-colors hover:text-ink"
+          >
+            {t.footer.selectedWork}
           </Link>
         </div>
       </div>
