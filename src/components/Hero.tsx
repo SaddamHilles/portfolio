@@ -48,7 +48,7 @@ export function Hero() {
         >
           <Link
             href="/work"
-            className="rounded-full bg-ink px-6 py-3 text-[13px] tracking-[0.14em] text-bg uppercase transition-colors hover:bg-accent hover:text-bg"
+            className="rounded-full bg-ink px-6 py-3 text-[13px] tracking-[0.14em] text-inverse uppercase transition-colors hover:bg-accent hover:text-inverse"
           >
             View selected work
           </Link>

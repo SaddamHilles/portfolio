@@ -19,7 +19,7 @@ export function ContactCTA() {
         <div className="mt-10 flex flex-wrap gap-4">
           <Link
             href="/contact"
-            className="rounded-full bg-ink px-6 py-3 text-[13px] tracking-[0.14em] text-bg uppercase transition-colors hover:bg-accent"
+            className="rounded-full bg-ink px-6 py-3 text-[13px] tracking-[0.14em] text-inverse uppercase transition-colors hover:bg-accent"
           >
             Start a conversation
           </Link>

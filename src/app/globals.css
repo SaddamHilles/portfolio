@@ -30,6 +30,7 @@
   --color-accent: var(--accent);
   --color-accent-strong: var(--accent-strong);
   --color-sage: var(--sage);
+  --color-inverse: #0b0a09;
   --font-sans: var(--font-geist-sans);
   --font-serif: var(--font-instrument);
   --font-mono: var(--font-geist-mono);
