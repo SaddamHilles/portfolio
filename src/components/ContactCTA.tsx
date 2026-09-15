@@ -17,10 +17,7 @@ export function ContactCTA() {
           platforms, marketplaces, and systems that have to hold up in production.
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
-          <Link
-            href="/contact"
-            className="rounded-full bg-ink px-6 py-3 text-[13px] tracking-[0.14em] text-inverse uppercase transition-colors hover:bg-accent"
-          >
+          <Link href="/contact" className="btn-solid">
             Start a conversation
           </Link>
           <a

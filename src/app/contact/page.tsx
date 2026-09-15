@@ -38,10 +38,7 @@ export default function ContactPage() {
               {site.email}
             </a>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href={site.social.email}
-                className="rounded-full bg-ink px-6 py-3 text-[13px] tracking-[0.14em] text-inverse uppercase transition-colors hover:bg-accent"
-              >
+              <a href={site.social.email} className="btn-solid">
                 Write an email
               </a>
               <CopyEmail />

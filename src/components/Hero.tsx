@@ -46,10 +46,7 @@ export function Hero() {
           className="mt-12 flex flex-wrap items-center gap-4 animate-rise"
           style={{ animationDelay: "320ms" }}
         >
-          <Link
-            href="/work"
-            className="rounded-full bg-ink px-6 py-3 text-[13px] tracking-[0.14em] text-inverse uppercase transition-colors hover:bg-accent hover:text-inverse"
-          >
+          <Link href="/work" className="btn-solid">
             View selected work
           </Link>
           <a
