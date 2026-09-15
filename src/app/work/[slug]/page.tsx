@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ContactCTA } from "@/components/ContactCTA";
+import { PhoneGrid, PhoneStrip } from "@/components/PhoneStrip";
 import { Reveal } from "@/components/Reveal";
 import { getProject, projects } from "@/data/projects";
 
@@ -109,16 +110,25 @@ export default async function CaseStudyPage({
       </header>
 
       <div className="px-5 sm:px-8">
-        <div className="relative mx-auto aspect-[16/9] max-w-7xl overflow-hidden rounded-[1.6rem] border border-line">
-          <Image
-            src={project.cover}
-            alt={project.title}
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-        </div>
+        {project.layout === "mobile" ? (
+          <div className="relative mx-auto aspect-[16/9] max-w-7xl overflow-hidden rounded-[1.6rem] border border-line bg-bg-elevated">
+            <PhoneStrip
+              images={[project.cover, ...(project.gallery ?? [])]}
+              alt={project.title}
+            />
+          </div>
+        ) : (
+          <div className="relative mx-auto aspect-[16/9] max-w-7xl overflow-hidden rounded-[1.6rem] border border-line">
+            <Image
+              src={project.cover}
+              alt={project.title}
+              fill
+              className="object-cover object-top"
+              priority
+              sizes="100vw"
+            />
+          </div>
+        )}
       </div>
 
       <div className="px-5 py-20 sm:px-8 sm:py-28">
@@ -177,23 +187,39 @@ export default async function CaseStudyPage({
                 </p>
               </Reveal>
             ))}
-
-            {project.gallery?.map((src) => (
-              <Reveal key={src}>
-                <div className="relative aspect-[16/9] overflow-hidden rounded-[1.2rem] border border-line">
-                  <Image
-                    src={src}
-                    alt={`${project.title} additional view`}
-                    fill
-                    className="object-cover"
-                    sizes="(min-width: 1024px) 60vw, 100vw"
-                  />
-                </div>
-              </Reveal>
-            ))}
           </div>
         </div>
       </div>
+
+      {project.gallery && project.gallery.length > 0 ? (
+        <div className="px-5 pb-16 sm:px-8">
+          <Reveal className="mx-auto max-w-7xl">
+            {project.layout === "mobile" ? (
+              <PhoneGrid
+                images={[project.cover, ...project.gallery]}
+                alt={project.title}
+              />
+            ) : (
+              <div className="grid gap-6">
+                {project.gallery.map((src) => (
+                  <div
+                    key={src}
+                    className="relative aspect-[16/9] overflow-hidden rounded-[1.4rem] border border-line bg-bg-elevated"
+                  >
+                    <Image
+                      src={src}
+                      alt={`${project.title} product screenshot`}
+                      fill
+                      className="object-cover object-top"
+                      sizes="100vw"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+          </Reveal>
+        </div>
+      ) : null}
 
       <div className="px-5 pb-8 sm:px-8">
         <Link

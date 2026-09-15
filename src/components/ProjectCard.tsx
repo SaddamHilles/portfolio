@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { PhoneStrip } from "@/components/PhoneStrip";
 import type { Project } from "@/data/projects";
 import { cn } from "@/lib/utils";
 
@@ -10,6 +11,11 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({ project, index, featured = false }: ProjectCardProps) {
+  const screens =
+    project.layout === "mobile"
+      ? [project.cover, ...(project.gallery ?? [])]
+      : [project.cover];
+
   return (
     <Link
       href={`/work/${project.slug}`}
@@ -24,17 +30,27 @@ export function ProjectCard({ project, index, featured = false }: ProjectCardPro
           featured ? "lg:col-span-8 aspect-[16/10]" : "aspect-[16/10]",
         )}
       >
-        <Image
-          src={project.cover}
-          alt={project.title}
-          fill
-          className="object-cover"
-          sizes={featured ? "(min-width: 1024px) 66vw, 100vw" : "(min-width: 768px) 50vw, 100vw"}
-          priority={index < 2}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-80" />
+        {project.layout === "mobile" ? (
+          <PhoneStrip images={screens} alt={project.title} />
+        ) : (
+          <Image
+            src={project.cover}
+            alt={project.title}
+            fill
+            className="object-cover object-top"
+            sizes={
+              featured
+                ? "(min-width: 1024px) 66vw, 100vw"
+                : "(min-width: 768px) 50vw, 100vw"
+            }
+            priority={index < 2}
+          />
+        )}
+        {project.layout !== "mobile" ? (
+          <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-80" />
+        ) : null}
         <span
-          className="absolute top-4 left-4 rounded-full border border-white/15 bg-black/30 px-3 py-1 text-[11px] tracking-[0.16em] text-white/80 uppercase backdrop-blur-md"
+          className="absolute top-4 left-4 z-10 rounded-full border border-white/15 bg-black/30 px-3 py-1 text-[11px] tracking-[0.16em] text-white/80 uppercase backdrop-blur-md"
           style={{ color: project.accent }}
         >
           {String(index + 1).padStart(2, "0")}

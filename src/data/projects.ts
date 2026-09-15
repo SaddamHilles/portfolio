@@ -7,6 +7,7 @@ export type Project = {
   company: string;
   cover: string;
   gallery?: string[];
+  layout?: "web" | "mobile";
   accent: string;
   href?: string;
   liveLabel?: string;
@@ -23,12 +24,18 @@ export const projects: Project[] = [
   {
     slug: "savers-club",
     title: "Savers Club",
-    subtitle: "Card-linked offers, hosted web, and a partner SDK",
+    subtitle: "Cashback mobile app — offers, hub, and travel",
     year: "Production",
     role: "Senior Frontend Engineer",
     company: "MadRewards / Savers App",
     cover: "/images/savers-club.png",
-    accent: "#7d9b84",
+    gallery: [
+      "/images/savers-club-offers.png",
+      "/images/savers-club-offer.png",
+      "/images/savers-club-hub.png",
+    ],
+    layout: "mobile",
+    accent: "#1d4ed8",
     href: "https://m.saversapp.com",
     liveLabel: "m.saversapp.com",
     featured: true,
@@ -120,8 +127,11 @@ export const projects: Project[] = [
     role: "Senior Frontend Engineer",
     company: "Savers App Inc.",
     cover: "/images/partner-portal.png",
-    gallery: ["/images/admin-portal.png"],
-    accent: "#8aa0c4",
+    gallery: [
+      "/images/partner-portal-pricing.png",
+      "/images/partner-portal-dashboard.png",
+    ],
+    accent: "#2563eb",
     featured: true,
     stack: [
       "React",
@@ -167,7 +177,8 @@ export const projects: Project[] = [
     role: "Frontend Engineer",
     company: "Reach Digital Hub",
     cover: "/images/reachme.png",
-    accent: "#c45c4a",
+    gallery: ["/images/reachme-jobs.png"],
+    accent: "#c01048",
     featured: true,
     stack: [
       "Next.js 14",
