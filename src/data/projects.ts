@@ -130,7 +130,6 @@ export const projects: Project[] = [
     gallery: [
       "/images/partner-portal-pricing.png",
       "/images/partner-portal-dashboard.png",
-      "/images/savers-branch.png",
     ],
     accent: "#2563eb",
     featured: true,
