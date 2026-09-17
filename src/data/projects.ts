@@ -254,6 +254,49 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "car-wash-dashboard",
+    title: "Car Wash Dashboard",
+    subtitle: "RTL operations console for bookings, staff, and services",
+    year: "Product",
+    role: "Frontend Engineer",
+    company: "Independent",
+    cover: "/images/car-wash-dashboard.png",
+    gallery: ["/images/car-wash-reservations.png"],
+    accent: "#4C2784",
+    featured: true,
+    stack: [
+      "React",
+      "TypeScript",
+      "MUI",
+      "Redux Toolkit",
+      "Tailwind CSS",
+      "Recharts",
+      "RTL",
+    ],
+    summary:
+      "An Arabic-first admin dashboard for a car-wash business: reservations, employees, services, locations, coupons, and a home board with KPI cards and weekly booking charts.",
+    problem:
+      "The shop needed one operations surface in Arabic RTL — not a LTR English admin flipped with CSS. Staff had to manage bookings, working hours, vacations, services, and coupons without leaving the console.",
+    approach: [
+      "React 18 + TypeScript with MUI, Emotion RTL (stylis-plugin-rtl), Tailwind, and Tajawal typography on a purple operations theme.",
+      "Redux Toolkit for auth and RTK Query for home stats, reservations, users, and employees, behind protected routes.",
+      "Full reservation lifecycle: list, details, create/edit forms, plus services, locations, coupons, and employee working times / vacations.",
+      "Dashboard home with month filters, KPI cards, Recharts weekly bars, and jsPDF-ready operational tables.",
+    ],
+    outcome:
+      "A production-shaped Arabic operations console: sign-in, a collapsible sidebar, and the day-to-day tools a car-wash manager actually uses.",
+    sections: [
+      {
+        heading: "RTL as a product constraint",
+        body: "The app is not a translated English dashboard. Emotion cache is wired with stylis-plugin-rtl, MUI theme uses Tajawal, and navigation, tables, and forms are authored for Arabic. That is the difference between supporting a locale and shipping for one.",
+      },
+      {
+        heading: "Operations, not a single table",
+        body: "Reservations sit next to staff (info, working periods, vacations), wash services, locations, and coupons. Protected routing and Redux auth keep the console gated. The home board turns those records into weekly booking volume a manager can scan in one sitting.",
+      },
+    ],
+  },
 ];
 
 export function getProject(slug: string) {

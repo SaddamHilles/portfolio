@@ -92,25 +92,65 @@ body {
   }
 }
 
-.btn-solid {
+.btn-solid,
+.btn-outline {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: #f3efe6;
-  color: #0b0a09;
   padding: 0.75rem 1.5rem;
   font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  box-sizing: border-box;
   transition:
     background-color 0.2s ease,
-    color 0.2s ease;
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
-html[lang="ar"] .btn-solid {
+.btn-solid {
+  border: 1px solid #f3efe6;
+  background: #f3efe6;
+  color: #0b0a09;
+}
+
+.btn-outline {
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--ink-muted);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+html[lang="ar"] .btn-solid,
+html[lang="ar"] .btn-outline {
   letter-spacing: 0.04em;
   text-transform: none;
+}
+
+.btn-pair {
+  display: grid;
+  width: max-content;
+  max-width: 100%;
+  gap: 0.75rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.btn-pair > * {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (min-width: 480px) {
+  .btn-pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 img {

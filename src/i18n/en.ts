@@ -53,13 +53,13 @@ export const en: Dictionary = {
     eyebrow: "Selected work",
     title: "Products that have to work in production",
     description:
-      "Card-linked offers, white-label cashback, partner SaaS, a job marketplace, and a defense tabletop — shipped as real interfaces, not demos.",
+      "Card-linked offers, white-label cashback, partner SaaS, a job marketplace, a defense tabletop, and an Arabic car-wash operations dashboard — shipped as real interfaces, not demos.",
     allCaseStudies: "All case studies",
     viewCaseStudy: "View case study",
     indexEyebrow: "Index",
     indexTitle: "Selected work",
     indexDescription:
-      "Five products. One through-line: interfaces for platforms that have members, partners, and operators — not just screens.",
+      "Six products. One through-line: interfaces for platforms that have members, partners, and operators — not just screens.",
   },
   experience: {
     eyebrow: "Experience",

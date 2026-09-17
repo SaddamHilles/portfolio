@@ -45,16 +45,13 @@ export function Hero({ locale, t }: { locale: Locale; t: Dictionary }) {
         </p>
 
         <div
-          className="mt-12 flex flex-wrap items-center gap-4 animate-rise"
+          className="btn-pair mt-12 animate-rise"
           style={{ animationDelay: "320ms" }}
         >
           <Link href={localizedPath(locale, "/work")} className="btn-solid">
             {t.hero.viewWork}
           </Link>
-          <a
-            href={site.social.email}
-            className="rounded-full border border-line-strong px-6 py-3 text-[13px] tracking-[0.14em] text-ink-muted uppercase transition-colors hover:border-accent hover:text-accent"
-          >
+          <a href={site.social.email} className="btn-outline">
             {site.email}
           </a>
         </div>

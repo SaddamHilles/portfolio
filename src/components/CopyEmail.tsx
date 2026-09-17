@@ -26,7 +26,7 @@ export function CopyEmail({
     <button
       type="button"
       onClick={copy}
-      className="rounded-full border border-line-strong px-6 py-3 text-[13px] tracking-[0.14em] text-ink-muted uppercase transition-colors hover:border-accent hover:text-accent"
+      className="btn-outline"
     >
       {copied ? copiedLabel : copyLabel}
     </button>

@@ -15,14 +15,11 @@ export function ContactCTA({ locale, t }: { locale: Locale; t: Dictionary }) {
           {t.cta.title}
         </h2>
         <p className="mt-6 max-w-xl text-lg leading-8 text-ink-muted">{t.cta.body}</p>
-        <div className="mt-10 flex flex-wrap gap-4">
+        <div className="btn-pair mt-10">
           <Link href={localizedPath(locale, "/contact")} className="btn-solid">
             {t.cta.button}
           </Link>
-          <a
-            href={site.social.email}
-            className="rounded-full border border-line-strong px-6 py-3 text-[13px] tracking-[0.14em] text-ink-muted uppercase transition-colors hover:text-ink"
-          >
+          <a href={site.social.email} className="btn-outline">
             {site.email}
           </a>
         </div>

@@ -53,7 +53,7 @@ export default async function ContactPage({
             >
               {site.email}
             </a>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="btn-pair mt-8">
               <a href={site.social.email} className="btn-solid">
                 {t.contact.writeEmail}
               </a>

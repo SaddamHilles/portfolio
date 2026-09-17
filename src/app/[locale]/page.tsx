@@ -56,7 +56,7 @@ export default async function Home({
           ) : null}
 
           <div className="mt-16 grid gap-14 md:grid-cols-2">
-            {rest.slice(0, 4).map((project, index) => (
+            {rest.map((project, index) => (
               <Reveal key={project.slug} delay={index * 80}>
                 <ProjectCard
                   project={project}
