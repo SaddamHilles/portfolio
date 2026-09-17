@@ -70,7 +70,7 @@ export function ProjectCard({
         <p className="text-[11px] tracking-[0.2em] text-ink-faint uppercase">
           {project.company} · {project.year}
         </p>
-        <h3 className="mt-2 font-serif text-3xl leading-tight tracking-tight text-ink transition-colors group-hover:text-accent sm:text-4xl">
+        <h3 className="mt-2 font-serif text-3xl leading-[1.2] text-ink transition-colors group-hover:text-accent sm:text-4xl">
           {project.title}
         </h3>
         <p className="mt-3 max-w-md text-[15px] leading-7 text-ink-muted">

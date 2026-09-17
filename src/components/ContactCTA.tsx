@@ -11,7 +11,7 @@ export function ContactCTA({ locale, t }: { locale: Locale; t: Dictionary }) {
         <p className="text-[11px] tracking-[0.22em] text-accent uppercase">
           {t.cta.eyebrow}
         </p>
-        <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-[1.08] tracking-tight text-ink sm:text-6xl">
+        <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-[1.15] text-ink sm:text-6xl">
           {t.cta.title}
         </h2>
         <p className="mt-6 max-w-xl text-lg leading-8 text-ink-muted">{t.cta.body}</p>

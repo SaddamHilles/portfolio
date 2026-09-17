@@ -34,7 +34,7 @@ export default async function AboutPage({
             <p className="text-[11px] tracking-[0.22em] text-accent uppercase">
               {t.about.eyebrow}
             </p>
-            <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-[1.05] tracking-tight sm:text-7xl">
+            <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-[1.12] sm:text-7xl">
               {t.about.title}
             </h1>
           </Reveal>

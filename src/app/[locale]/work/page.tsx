@@ -37,7 +37,7 @@ export default async function WorkPage({
           <p className="text-[11px] tracking-[0.22em] text-accent uppercase">
             {t.work.indexEyebrow}
           </p>
-          <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-[1.05] tracking-tight sm:text-7xl">
+          <h1 className="mt-4 max-w-3xl font-serif text-5xl leading-[1.12] sm:text-7xl">
             {t.work.indexTitle}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-muted">

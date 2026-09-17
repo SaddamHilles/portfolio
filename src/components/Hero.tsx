@@ -29,7 +29,7 @@ export function Hero({ locale, t }: { locale: Locale; t: Dictionary }) {
         </div>
 
         <h1
-          className="max-w-5xl font-serif text-[18vw] leading-[0.86] tracking-[-0.035em] text-ink sm:text-[12vw] lg:text-[7.4rem] animate-rise"
+          className="max-w-5xl font-serif text-[18vw] leading-[0.92] text-ink sm:text-[12vw] lg:text-[7.4rem] animate-rise"
           style={{ animationDelay: "120ms" }}
         >
           {t.hero.firstName}

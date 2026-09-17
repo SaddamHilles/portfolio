@@ -66,7 +66,7 @@ export default async function CaseStudyPage({
             {t.caseStudy.label} · {project.company}
           </p>
           <h1
-            className="mt-4 max-w-4xl font-serif text-5xl leading-[1.02] tracking-tight sm:text-7xl animate-rise"
+            className="mt-4 max-w-4xl font-serif text-5xl leading-[1.12] sm:text-7xl animate-rise"
             style={{ animationDelay: "80ms" }}
           >
             {project.title}

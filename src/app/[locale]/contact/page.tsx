@@ -34,7 +34,7 @@ export default async function ContactPage({
           <p className="text-[11px] tracking-[0.22em] text-accent uppercase">
             {t.contact.eyebrow}
           </p>
-          <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-[1.05] tracking-tight sm:text-7xl">
+          <h1 className="mt-4 max-w-4xl font-serif text-5xl leading-[1.12] sm:text-7xl">
             {t.contact.title}
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-ink-muted">
