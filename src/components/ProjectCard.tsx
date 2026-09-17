@@ -46,6 +46,7 @@ export function ProjectCard({
             src={project.cover}
             alt={project.title}
             fill
+            quality={95}
             className="object-cover object-top"
             sizes={
               featured

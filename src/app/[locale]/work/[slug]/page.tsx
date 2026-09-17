@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ContactCTA } from "@/components/ContactCTA";
 import { PhoneGrid, PhoneStrip } from "@/components/PhoneStrip";
+import { ProductShot } from "@/components/ProductShot";
 import { Reveal } from "@/components/Reveal";
 import { getProject, localizeProject, projects } from "@/data/projects";
 import { locales, localizedPath, resolveLocale } from "@/i18n/config";
@@ -132,15 +132,8 @@ export default async function CaseStudyPage({
             />
           </div>
         ) : (
-          <div className="relative mx-auto aspect-[16/9] max-w-7xl overflow-hidden rounded-[1.6rem] border border-line">
-            <Image
-              src={project.cover}
-              alt={project.title}
-              fill
-              className="object-cover object-top"
-              priority
-              sizes="100vw"
-            />
+          <div className="mx-auto max-w-7xl">
+            <ProductShot src={project.cover} alt={project.title} priority />
           </div>
         )}
       </div>
@@ -216,18 +209,12 @@ export default async function CaseStudyPage({
             ) : (
               <div className="grid gap-6">
                 {project.gallery.map((src) => (
-                  <div
+                  <ProductShot
                     key={src}
-                    className="relative aspect-[16/9] overflow-hidden rounded-[1.4rem] border border-line bg-bg-elevated"
-                  >
-                    <Image
-                      src={src}
-                      alt={project.title}
-                      fill
-                      className="object-cover object-top"
-                      sizes="100vw"
-                    />
-                  </div>
+                    src={src}
+                    alt={project.title}
+                    className="rounded-[1.4rem]"
+                  />
                 ))}
               </div>
             )}
