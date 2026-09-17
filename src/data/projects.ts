@@ -130,6 +130,7 @@ export const projects: Project[] = [
     gallery: [
       "/images/partner-portal-pricing.png",
       "/images/partner-portal-dashboard.png",
+      "/images/savers-branch.png",
     ],
     accent: "#2563eb",
     featured: true,
@@ -220,6 +221,10 @@ export const projects: Project[] = [
     role: "Frontend Engineer",
     company: "Q2 Impact",
     cover: "/images/makusudi.png",
+    gallery: [
+      "/images/makusudi-analytics.png",
+      "/images/makusudi-debrief.png",
+    ],
     accent: "#3F5993",
     featured: true,
     stack: [
